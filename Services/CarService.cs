@@ -9,11 +9,11 @@ using HomeTask3_Experimental_.Parking;
 
 namespace HomeTask3_Experimental_.Services
 {
-    public class LoadCarService
+    public class CarService
     {
         private Parking.Parking parking;
 
-        public LoadCarService()
+        public CarService()
         {
             parking = Parking.Parking.Create;
         }
@@ -48,6 +48,14 @@ namespace HomeTask3_Experimental_.Services
             });
 
             return strData;
+        }
+
+        public async Task GetFreePlace()
+        {
+            var count = await Task.Run(() =>
+            {
+                return JsonConvert.SerializeObject(parking.FreePlace());
+            });
         }
     }
 }

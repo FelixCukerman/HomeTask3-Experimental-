@@ -77,6 +77,21 @@ namespace HomeTask3_Experimental_.Parking
             }
         }
 
+        public int FreePlace()
+        {
+            return parkingSpace - area.Count;
+        }
+
+        public int BookedPlace()
+        {
+            return area.Count;
+        }
+
+        public double ShowProfit()
+        {
+            return Math.Round(Profit, 2);
+        }
+
         private void WriteToLog()
         {
             BinaryFormatter formatter = new BinaryFormatter();

@@ -14,8 +14,8 @@ namespace HomeTask3_Experimental_.Controllers
     [Produces("application/json")]
     public class CarController : Controller
     {
-        private LoadCarService service {get; set;}
-        public CarController(LoadCarService service)
+        private CarService service {get; set;}
+        public CarController(CarService service)
         {
             this.service = service;
         }
