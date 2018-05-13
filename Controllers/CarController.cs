@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Net.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -34,6 +35,16 @@ namespace HomeTask3_Experimental_.Controllers
             var query = JsonConvert.DeserializeObject<List<Car>>(await service.GetCar()).Where(x => x.Id == id);
 
             return JsonConvert.SerializeObject(query);
+        }
+
+        public ActionResult ExampleNotFound()
+        {
+            return NotFound("Sorry !!");            
+        }
+
+        public ActionResult ExampleOk()
+        {
+            return Ok("Congratulations !!");
         }
 
         // POST api/Posts
