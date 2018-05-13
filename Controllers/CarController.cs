@@ -12,7 +12,6 @@ using HomeTask3_Experimental_.Parking;
 namespace HomeTask3_Experimental_.Controllers
 {
     [Produces("application/json")]
-    [Route("api/GetCar")]
     public class CarController : Controller
     {
         private LoadCarService service {get; set;}
@@ -21,36 +20,38 @@ namespace HomeTask3_Experimental_.Controllers
             this.service = service;
         }
 
-        // GET api/Posts
+        // GET api/GetCars
+        [Route("api/GetCars")]
         [HttpGet]
-        public async Task<string> Get()
+        public async Task<JsonResult> GetAllCar()
         {
-            return await service.GetCar();
+            var query = JsonConvert.DeserializeObject<List<Car>>(await service.GetCar());
+            return Json(query);
         }
 
-        // GET api/Posts/5
-        [HttpGet("{id}", Name = "Get")]
-        public async Task<string> Get(int id)
+        // GET api/GetCar/1
+        [Route("api/GetCar/{id}")]
+        [HttpGet]
+        public async Task<JsonResult> GetCarById(int id)
         {
             var query = JsonConvert.DeserializeObject<List<Car>>(await service.GetCar()).Where(x => x.Id == id);
-
-            return JsonConvert.SerializeObject(query);
+            return Json(query);
         }
 
-        public ActionResult ExampleNotFound()
-        {
-            return NotFound("Sorry !!");            
-        }
-
-        public ActionResult ExampleOk()
-        {
-            return Ok("Congratulations !!");
-        }
-
-        // POST api/Posts
+        // POST api/GetCar
+        [Route("api/PostCar/{type}&{cash}")]
         [HttpPost]
-        public void Post([FromBody]string value)
+        public async Task<JsonResult> PostNewCar(string type, int cash)
         {
+            try
+            {
+                await service.PostCar(type, cash);
+                return Json(Ok());
+            }
+            catch
+            {
+                return Json(BadRequest());
+            }
         }
 
         // PUT api/Posts/5

@@ -27,13 +27,12 @@ namespace HomeTask3_Experimental_.Parking
             get { return category; }
         } //Обработка исключений(добавить)
 
-        public Car(int id, double cash, string category)
+        public Car(int id, double cash, CarType category)
         {
             this.id = id;
             this.cash = cash;
 
-            object container = Enum.Parse(typeof(CarType), category);
-            this.category = (CarType)container;
+            this.category = category;
         }
 
         public void AddCash()

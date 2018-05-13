@@ -32,8 +32,9 @@ namespace HomeTask3_Experimental_.Parking
         }
         protected Parking()
         {
+            transaction = new List<Transaction>();
             area = new List<Car>();
-            area.Add(new Car(1, 100, "Passenger"));
+            AddCar("Bus", 200);
 
             timeout = Settings.Timeout;
             parkingSpace = Settings.ParkingSpace;
@@ -48,18 +49,15 @@ namespace HomeTask3_Experimental_.Parking
             }
         }
 
-        public void AddCar()
+        public void AddCar(string category, int money)
         {
-            Random r = new Random(DateTime.Now.Millisecond);
-            double money = r.Next(70, 200);
-
-            string category = Console.ReadLine();
-            area.Add(new Car(currentId, money, category));
+            object elem = Enum.Parse(typeof(CarType), category);
+            area.Add(new Car(currentId, money, (CarType)elem));
             Task t = Controller(currentId-1);
             currentId++;
         }
 
-        private void WriteToLog() //изменить на json
+        private void WriteToLog()
         {
             BinaryFormatter formatter = new BinaryFormatter();
             using (FileStream fs = new FileStream("transaction.log", FileMode.OpenOrCreate))
@@ -101,10 +99,10 @@ namespace HomeTask3_Experimental_.Parking
                 int price = Settings.priceList[(CarType)area[id].Category];
 
                 Thread.Sleep((int)timeout);  //исправить
-                Profit += price * fine;
+                Profit += price * Math.Round(fine, 2);
                 transaction.Add(new Transaction(id, price));
                 WriteToLog();
-                return area[id].Cash - (price * fine);
+                return area[id].Cash - (price * Math.Round(fine, 2));
             });
         }
     }
