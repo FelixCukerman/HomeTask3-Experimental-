@@ -1,0 +1,11 @@
+C:\Users\Felix Cukerman\Documents\GitProject\HomeTask3-Experimental-\bin\Debug\netcoreapp2.0\HomeTask3-Experimental-.deps.json
+C:\Users\Felix Cukerman\Documents\GitProject\HomeTask3-Experimental-\bin\Debug\netcoreapp2.0\HomeTask3-Experimental-.runtimeconfig.json
+C:\Users\Felix Cukerman\Documents\GitProject\HomeTask3-Experimental-\bin\Debug\netcoreapp2.0\HomeTask3-Experimental-.runtimeconfig.dev.json
+C:\Users\Felix Cukerman\Documents\GitProject\HomeTask3-Experimental-\bin\Debug\netcoreapp2.0\HomeTask3-Experimental-.dll
+C:\Users\Felix Cukerman\Documents\GitProject\HomeTask3-Experimental-\bin\Debug\netcoreapp2.0\HomeTask3-Experimental-.pdb
+C:\Users\Felix Cukerman\Documents\GitProject\HomeTask3-Experimental-\obj\Debug\netcoreapp2.0\HomeTask3-Experimental-.csprojResolveAssemblyReference.cache
+C:\Users\Felix Cukerman\Documents\GitProject\HomeTask3-Experimental-\obj\Debug\netcoreapp2.0\HomeTask3-Experimental-.csproj.CoreCompileInputs.cache
+C:\Users\Felix Cukerman\Documents\GitProject\HomeTask3-Experimental-\obj\Debug\netcoreapp2.0\HomeTask3-Experimental-.AssemblyInfoInputs.cache
+C:\Users\Felix Cukerman\Documents\GitProject\HomeTask3-Experimental-\obj\Debug\netcoreapp2.0\HomeTask3-Experimental-.AssemblyInfo.cs
+C:\Users\Felix Cukerman\Documents\GitProject\HomeTask3-Experimental-\obj\Debug\netcoreapp2.0\HomeTask3-Experimental-.dll
+C:\Users\Felix Cukerman\Documents\GitProject\HomeTask3-Experimental-\obj\Debug\netcoreapp2.0\HomeTask3-Experimental-.pdb
