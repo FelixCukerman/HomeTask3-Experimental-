@@ -5,31 +5,32 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using HomeTask3_Experimental_.Services;
+using HomeTask3_Experimental_.Parking;
 
 namespace HomeTask3_Experimental_.Controllers
 {
     [Produces("application/json")]
-    [Route("api/[controller]")]
-    public class PostsController : Controller
+    [Route("api/GetCar")]
+    class CarController : Controller
     {
         private LoadUsersService service {get; set;}
-        public PostsController(LoadUsersService service)
+        public CarController(LoadUsersService service)
         {
             this.service = service;
         }
 
         // GET api/Posts
         [HttpGet]
-        public async Task<List<Posts>> Get()
+        public async Task<IEnumerable<Car>> Get()
         {
-            return await service.GetPosts();
+            return await service.GetCar();
         }
 
         // GET api/Posts/5
         [HttpGet("{id}", Name = "Get")]
-        public async Task<IEnumerable<Posts>> Get(int id)
+        public async Task<IEnumerable<Car>> Get(int id)
         {
-            return (await service.GetPosts()).Where(x => x.UserId == id);
+            return (await service.GetCar()).Where(x => x.Id == id);
         }
 
         // POST api/Posts

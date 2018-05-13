@@ -4,31 +4,27 @@ using System.Threading.Tasks;
 using System.Linq;
 using System.Net.Http;
 using Newtonsoft.Json;
+using HomeTask3_Experimental_.Parking;
 
 namespace HomeTask3_Experimental_.Services
 {
-    public class LoadUsersService
+    class LoadUsersService
     {
-        private HttpClient Client { get; set; }
+        private Parking.Parking parking;
 
         public LoadUsersService()
         {
-            Client = new HttpClient();
+            parking = Parking.Parking.Create;
         }
 
-        public async Task<List<Posts>> GetPosts()
+        public async Task<IEnumerable<Car>> GetCar()
         {
-            var strData = await Client.GetStringAsync("https://jsonplaceholder.typicode.com/posts");
+            var strData = await Task.Run(() =>
+            {
+                return parking.AllCar;
+            });
 
-            return JsonConvert.DeserializeObject<List<Posts>>(strData);
+            return strData;
         }
-    }
-
-    public class Posts
-    {
-        public int UserId { get; set; }
-        public int Id { get; set; }
-        public string Body { get; set; }
-        public string Title { get; set; }
     }
 }
