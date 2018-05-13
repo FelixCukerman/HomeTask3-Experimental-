@@ -33,13 +33,13 @@ namespace HomeTask3_Experimental_.Controllers
         }
 
         // POST api/Posts
-        /*[HttpPost]
+        [HttpPost]
         public void Post([FromBody]string value)
         {
         }
 
         // PUT api/Posts/5
-        [HttpPut("{id}")]
+        /*[HttpPut("{id}")]
         public void Put(int id, [FromBody]string value)
         {
         }
