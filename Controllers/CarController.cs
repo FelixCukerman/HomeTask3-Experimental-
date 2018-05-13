@@ -20,7 +20,7 @@ namespace HomeTask3_Experimental_.Controllers
             this.service = service;
         }
 
-        // GET api/GetCars
+        // GET api/GetCars (example)
         [Route("api/GetCars")]
         [HttpGet]
         public async Task<JsonResult> GetAllCar()
@@ -29,7 +29,7 @@ namespace HomeTask3_Experimental_.Controllers
             return Json(query);
         }
 
-        // GET api/GetCar/1
+        // GET api/GetCar/1 (example)
         [Route("api/GetCar/{id}")]
         [HttpGet]
         public async Task<JsonResult> GetCarById(int id)
@@ -38,14 +38,29 @@ namespace HomeTask3_Experimental_.Controllers
             return Json(query);
         }
 
-        // POST api/GetCar
-        [Route("api/PostCar/{type}&{cash}")]
+        // POST api/PostCar/Bus&100 (example)
+        [Route("api/PostCar/{category}&{cash}")]
         [HttpPost]
-        public async Task<JsonResult> PostNewCar(string type, int cash)
+        public async Task<JsonResult> PostNewCar(string category, int cash)
         {
             try
             {
-                await service.PostCar(type, cash);
+                await service.PostCar(category, cash);
+                return Json(Ok());
+            }
+            catch(Exception)
+            {
+                return Json(BadRequest());
+            }
+        }
+
+        // DELETE api/RemoveCar/5
+        [HttpDelete("api/RemoveCar/{id}")]
+        public async Task<JsonResult> DeleteCar(int id)
+        {
+            try
+            {
+                await service.DeleteCar(id);
                 return Json(Ok());
             }
             catch
@@ -53,16 +68,9 @@ namespace HomeTask3_Experimental_.Controllers
                 return Json(BadRequest());
             }
         }
-
         // PUT api/Posts/5
         /*[HttpPut("{id}")]
         public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/Posts/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
         {
         }*/
     }

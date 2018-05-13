@@ -28,11 +28,22 @@ namespace HomeTask3_Experimental_.Services
             return strData;
         }
 
-        public async Task<string> PostCar(string type, int cash)
+        public async Task<string> PostCar(string category, int cash)
         {
             var strData = await Task.Run(() =>
             {
-                parking.AddCar(type, cash);
+                parking.AddCar(category, cash);
+                return JsonConvert.SerializeObject(parking.AllCar);
+            });
+
+            return strData;
+        }
+
+        public async Task<string> DeleteCar(int id)
+        {
+            var strData = await Task.Run(() =>
+            {
+                parking.RemoveCar(id);
                 return JsonConvert.SerializeObject(parking.AllCar);
             });
 

@@ -57,6 +57,26 @@ namespace HomeTask3_Experimental_.Parking
             currentId++;
         }
 
+        public string RemoveCar(int id)
+        {
+            try
+            {
+                if(area[id - 1].Cash < 0)
+                    throw new Exception("Пополните баланс машины");
+
+                area.RemoveAt(id - 1);
+                return string.Empty;
+            }
+            catch(ArgumentOutOfRangeException)
+            {
+                return "Невозможно удалить машину за пределами парковки";
+            }
+            catch(Exception ex)
+            {
+                return Convert.ToString(ex.Message);
+            }
+        }
+
         private void WriteToLog()
         {
             BinaryFormatter formatter = new BinaryFormatter();

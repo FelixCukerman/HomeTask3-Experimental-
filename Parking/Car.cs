@@ -35,11 +35,8 @@ namespace HomeTask3_Experimental_.Parking
             this.category = category;
         }
 
-        public void AddCash()
+        public void AddCash(double cash)
         {
-            Console.Write("Введите суму пополнения: ");
-            double cash = Convert.ToInt32(Console.ReadLine());
-
             this.cash += cash;
         }
 
