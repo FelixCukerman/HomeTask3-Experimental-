@@ -45,7 +45,7 @@ namespace HomeTask3_Experimental_.Services
                 return JsonConvert.SerializeObject(parking.ShowProfit());
             });
 
-            return count; 
+            return count;
         }
     }
 }

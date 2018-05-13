@@ -49,13 +49,5 @@ namespace HomeTask3_Experimental_.Services
 
             return strData;
         }
-
-        public async Task GetFreePlace()
-        {
-            var count = await Task.Run(() =>
-            {
-                return JsonConvert.SerializeObject(parking.FreePlace());
-            });
-        }
     }
 }

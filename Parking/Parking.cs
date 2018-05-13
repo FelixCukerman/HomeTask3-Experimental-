@@ -30,6 +30,17 @@ namespace HomeTask3_Experimental_.Parking
                 return area;
             }
         }
+        public List<Transaction> AllTransaction
+        {
+            get
+            {
+                if(transaction == null)
+                {
+                    transaction = new List<Transaction>();
+                }
+                return transaction;
+            }
+        }
         protected Parking()
         {
             transaction = new List<Transaction>();
