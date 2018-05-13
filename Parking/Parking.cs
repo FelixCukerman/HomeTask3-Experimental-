@@ -20,7 +20,6 @@ namespace HomeTask3_Experimental_.Parking
                 if(area == null)
                 {
                     area = new List<Car>();
-                    area.Add(new Car(1, 100, "Passenger"));
                 } 
                 return area; 
             }
@@ -28,6 +27,7 @@ namespace HomeTask3_Experimental_.Parking
         protected Parking()
         {
             area = new List<Car>();
+            area.Add(new Car(1, 100, "Passenger"));
         }
 
         public static Parking Create

@@ -8,20 +8,20 @@ using HomeTask3_Experimental_.Parking;
 
 namespace HomeTask3_Experimental_.Services
 {
-    class LoadUsersService
+    public class LoadCarService
     {
         private Parking.Parking parking;
 
-        public LoadUsersService()
+        public LoadCarService()
         {
             parking = Parking.Parking.Create;
         }
 
-        public async Task<IEnumerable<Car>> GetCar()
+        public async Task<string> GetCar()
         {
             var strData = await Task.Run(() =>
             {
-                return parking.AllCar;
+                return JsonConvert.SerializeObject(parking.AllCar);
             });
 
             return strData;
