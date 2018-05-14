@@ -12,20 +12,20 @@ namespace HomeTask3_Experimental_.Parking
         public int Id
         {
             get { return id; }
-        } //обработка исключений(добавить)
+        }
 
         double cash;
         public double Cash 
         {
             get { return cash;  }
             set { cash = value; }
-        } //Обработка исключений(добавить)
+        }
 
         readonly CarType category;
         public CarType Category 
         {
             get { return category; }
-        } //Обработка исключений(добавить)
+        }
 
         public Car(int id, double cash, CarType category)
         {

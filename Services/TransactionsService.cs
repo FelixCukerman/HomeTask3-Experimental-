@@ -22,21 +22,21 @@ namespace HomeTask3_Experimental_.Services
         {
             var strData = await Task.Run(() =>
             {
-                return JsonConvert.SerializeObject(parking.AllTransaction);
+                return JsonConvert.SerializeObject(parking.GetAllTransactions());
             });
 
             return strData;
         }
 
 
-        /*public async Task<string> PutTransaction(int id, int cash)
+        public async Task<string> PutTransaction(int id, int cash)
         {
             var strData = await Task.Run(() =>
             {
-                ///some logic..
+                return JsonConvert.SerializeObject(parking.AddCash(id, cash));
             });
 
             return strData;
-        }*/
+        }
     }
 }

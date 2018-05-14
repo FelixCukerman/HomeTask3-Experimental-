@@ -30,17 +30,6 @@ namespace HomeTask3_Experimental_.Parking
                 return area;
             }
         }
-        public List<Transaction> AllTransaction
-        {
-            get
-            {
-                if(transaction == null)
-                {
-                    transaction = new List<Transaction>();
-                }
-                return transaction;
-            }
-        }
         protected Parking()
         {
             transaction = new List<Transaction>();
@@ -88,6 +77,19 @@ namespace HomeTask3_Experimental_.Parking
             }
         }
 
+        public string AddCash(int id, double cash)
+        {
+            try
+            {
+                area[id - 1].AddCash(cash);
+                return "ok";
+            }
+            catch(ArgumentOutOfRangeException)
+            {
+                return "Вы за пределами парковки";
+            }
+        }
+
         public int FreePlace()
         {
             return parkingSpace - area.Count;
@@ -112,9 +114,28 @@ namespace HomeTask3_Experimental_.Parking
             }
         }
 
+        public List<Transaction> GetAllTransactions()
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            transaction = new List<Transaction>();
+
+            try
+            {
+                using (FileStream fs = new FileStream("transaction.log", FileMode.OpenOrCreate))
+                {
+                    transaction = (List<Transaction>)formatter.Deserialize(fs);
+                    return transaction;
+                }
+            }
+            catch (Exception)
+            {
+                transaction = new List<Transaction>();
+                return transaction;
+            }
+        }
+
         private async Task Controller(int id)
         {
-
             while(true)
             {
                 if (area[id].Cash < 0)
