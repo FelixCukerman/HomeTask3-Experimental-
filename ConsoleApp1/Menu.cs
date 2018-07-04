@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.Threading.Tasks;
 using System.Collections.Generic;
 using ConsoleApp1.Quaries;
 
@@ -55,8 +56,10 @@ namespace ConsoleApp1
             return "";
         }
 
-        public static async void Start()
+        public static async Task Start()
         {
+            Console.Clear();
+
             List<string> menuItems = new List<string>() {
                 "Получить количество комментов под постами конкретного пользователя (по id)",
                 "Получить список комментов под постами конкретного пользователя (по айди), где body коммента < 50 символов",
@@ -85,7 +88,9 @@ namespace ConsoleApp1
                                 Console.WriteLine($"Post   : {item.post}");
                                 Console.WriteLine($"Count  : {item.count}");
 
-                                Console.WriteLine(new string('-', 85));
+                                Console.WriteLine(new string('-', 80));
+                                Console.ReadKey();
+                                Console.Clear();
                             }
 
                             break;
@@ -103,7 +108,9 @@ namespace ConsoleApp1
                                 Console.WriteLine($"Id     : {item.Id}");
                                 Console.WriteLine($"Body   : {item.Body}");
 
-                                Console.WriteLine(new string('-', 85));
+                                Console.WriteLine(new string('-', 80));
+                                Console.ReadKey();
+                                Console.Clear();
                             }
 
                             break;
@@ -121,7 +128,9 @@ namespace ConsoleApp1
                                 Console.WriteLine($"Id     : {item.Id}");
                                 Console.WriteLine($"Name   : {item.Name}");
 
-                                Console.WriteLine(new string('-', 85));
+                                Console.WriteLine(new string('-', 80));
+                                Console.ReadKey();
+                                Console.Clear();
                             }
 
                             break;
@@ -137,7 +146,9 @@ namespace ConsoleApp1
                                 Console.WriteLine($"Id     : {item.Id}");
                                 Console.WriteLine($"Name   : {item.Name}");
 
-                                Console.WriteLine(new string('-', 85));
+                                Console.WriteLine(new string('-', 80));
+                                Console.ReadKey();
+                                Console.Clear();
                             }
 
                             break;
@@ -158,7 +169,9 @@ namespace ConsoleApp1
                                 Console.WriteLine($"Most liked post:\n {item.postByMostLike.Title}");
                                 Console.WriteLine($"Unrealized task: {item.unrealizedTask}");
 
-                                Console.WriteLine(new string('-', 85));
+                                Console.WriteLine(new string('-', 80));
+                                Console.ReadKey();
+                                Console.Clear();
                             }
 
                             break;
@@ -178,7 +191,9 @@ namespace ConsoleApp1
                                 Console.WriteLine($"Comment by most like           : {item.CommentByMostLike}");
                                 Console.WriteLine($"Longest comment:\n {item.LongestComment.Body}");
 
-                                Console.WriteLine(new string('-', 85));
+                                Console.WriteLine(new string('-', 80));
+                                Console.ReadKey();
+                                Console.Clear();
                             }
 
                             break;
