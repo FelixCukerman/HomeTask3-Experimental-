@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -17,7 +17,7 @@ namespace ConsoleApp1
         {
             while(true)
             {
-                Menu.Start();
+                await Menu.Start();
             }
         }
     }
